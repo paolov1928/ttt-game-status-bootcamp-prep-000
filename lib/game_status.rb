@@ -25,6 +25,11 @@ WIN_COMBINATIONS.each do |win_combination|
   position_2 = board[win_index_2] 
   position_3 = board[win_index_3]
   if position_1 == "X" && position_2 == "X" && position_3 == "X"
+  empty_board = board.all? {|x| x == " "}
+  if empty_board || full?(board)
+      return false
+  elsif position_1 == "X" && position_2 == "X" && position_3 == "X"
+>>>>>>> c23ec813a5d49a2a9dc55e59f885ddc70c6c1de9
     return win_combination
   elsif position_1 == "O" && position_2 == "O" && position_3 == "O"
     return win_combination
@@ -32,16 +37,24 @@ WIN_COMBINATIONS.each do |win_combination|
     false
   end
   end
+<<<<<<< HEAD
   false
+=======
+>>>>>>> c23ec813a5d49a2a9dc55e59f885ddc70c6c1de9
 end
 
 #Full? Method
 def full?(board)
+<<<<<<< HEAD
   board.none? {|x| x == " "}
+=======
+  board.none? {|element| element == " "}
+>>>>>>> c23ec813a5d49a2a9dc55e59f885ddc70c6c1de9
 end
 
 #Draw? Method
 def draw?(board)
+<<<<<<< HEAD
   if full?(board) && !won?(board)
     return true
   else
@@ -77,3 +90,25 @@ def winner(board)
 end
 
 
+=======
+  if won?(board) == false
+    true
+  else
+    false
+end
+end
+
+#over?
+def over?(board)
+  won?(board) == true || full?(board) == true|| draw?(board) == true ? true : false
+end
+
+#winner
+def winner(board)
+  if won?(board) == true
+    return board[win_index_1]
+  else
+    nil
+end
+end
+>>>>>>> c23ec813a5d49a2a9dc55e59f885ddc70c6c1de9
